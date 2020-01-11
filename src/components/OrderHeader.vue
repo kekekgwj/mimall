@@ -6,3 +6,7 @@
     name:'order-header'
   }
 </script>
+
+<style lang="scss">
+
+</style>
