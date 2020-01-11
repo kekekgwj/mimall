@@ -39,6 +39,18 @@
           </div>
           <div class="item-menu">
             <span>RedMi</span>
+            <div class="children">
+              <ul>
+                <li class="product" v-for="(item,index) in phoneList" :key="index">
+                  <a :href="'/#/product'+item.id" target="_blank">
+                    <div class="pro-img">
+                      <img :src="item.mainImage"></div>
+                    <div class="pro-name" v-text="item.name"></div>
+                    <div class="pro-price" >{{item.price | currency}}</div>
+                  </a>
+                </li>
+              </ul>
+            </div>
             <div class="children"></div>
           </div>
           <div class="item-menu">
@@ -237,6 +249,7 @@
               overflow: hidden;
               border-top: 1px solid #e5e5e5;
               box-shadow:0px 7px 6px 0px rgba(0, 0, 0, 0.11);
+              background-color: #ffffff;
               transition: height .5s;
               .product{
                 position: relative;

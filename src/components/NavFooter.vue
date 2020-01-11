@@ -17,8 +17,6 @@
 <style lang="scss">
   @import "../assets/scss/mxin";
   .footer{
-    position: absolute;
-    bottom: 0;
     height: 234px;
     width:100%;
     border-top:4px solid #FF6600;
