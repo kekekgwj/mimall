@@ -86,7 +86,7 @@
                 <div class="item-info">
                   <h2>{{phone.name}}</h2>
                   <p>{{phone.subtitle}}</p>
-                  <p class="price">{{phone.price | currency()}}</p>
+                  <p class="price" @click="addCart()">{{phone.price | currency()}}</p>
                 </div>
               </div>
             </div>
@@ -104,7 +104,9 @@
             sureText="查看购物车"
             btnType="1"
             model-type="middle"
-            :showModel="showModel">
+            :showModel="showModel"
+            @submit="goToCart"
+            @cancel="showModel=false">
       <template v-slot:body>
         <p>商品添加成功!</p>
       </template>
@@ -131,6 +133,7 @@
         return '￥'+ val+'元'
       }
     },
+
     data(){
       return{
         swiperOption:{
@@ -152,7 +155,7 @@
             prevEl: '.swiper-button-prev',
           }
         },
-        showModel:true,
+        showModel:false,
 
         slideList:[
           {
@@ -225,6 +228,22 @@
       this.getPhoneList();
     },
     methods:{
+
+      addCart(){
+
+        this.showModel = !this.showModel;
+        return;
+       // this.axios.post('/carts',{
+       //   productId:id,
+       //   selected:true
+       // }).then((res) =>{
+
+       // })
+
+      },
+      goToCart(){
+        this.$router.push()
+      },
       getPhoneList(){
         this.axios.get('/products',{
           params:{

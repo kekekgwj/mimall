@@ -3,14 +3,55 @@
 @import "config";
 .model{
   @include posi(fixed);
+  z-index: 10;
+  transition: all 0.5s;
   .mask{
     @include posi(fixed);
     background-color: $colorI;
     opacity: 0.5;
   }
-  .model-dialog{
-    @include posi(absolute)
 
+  &.slide-enter-active{
+    top:0;
+  }
+  &.slide-leave-active{
+    top:-100%;
+  }
+  &.slide-enter{
+    top:-100%;
+  }
+  &.slide.leave{
+    top:0
+  }
+  .model-dialog{
+    @include posi(absolute,50%,50%,660px,auto);
+    background-color: $colorG;
+    transform: translate(-50%,-50%);
+    .model-header{
+      height: 60px;
+      background-color: $colorJ;
+      padding: 0 25px;
+      line-height: 60px;
+      font-size:$fontI;
+      .icon-close{
+        @include bgImgPos(absolute,23px,25px,14px,14px,'/imgs/icon-close.png');
+        transition: transform .3s;
+        &:hover{
+          transform: scale(1.5);
+        }
+      }
+
+    }
+    .model-body{
+      padding: 42px 40px 54px;
+      font-size:14px;
+    }
+    .model-footer{
+      background-color: $colorJ;
+      height: 82px;
+      line-height: 82px;
+      text-align: center;
+    }
   }
 }
 
