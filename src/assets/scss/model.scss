@@ -1,0 +1,16 @@
+@import "mxin";
+@import "base";
+@import "config";
+.model{
+  @include posi(fixed);
+  .mask{
+    @include posi(fixed);
+    background-color: $colorI;
+    opacity: 0.5;
+  }
+  .model-dialog{
+    @include posi(absolute)
+
+  }
+}
+
